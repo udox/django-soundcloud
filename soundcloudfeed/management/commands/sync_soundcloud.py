@@ -42,7 +42,7 @@ class Command(BaseCommand):
 
         if not stats_only or created:
             track.artwork_url = _track.artwork_url or ''
-            if _track.artwork_url is not None:
+            if not track.image and _track.artwork_url is not None:
                 # Cache our image locally
                 track.image = self._set_image(_track)
             track.bpm = _track.bpm or ''
